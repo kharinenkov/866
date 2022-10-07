@@ -37,9 +37,14 @@ a {
 p {
     color: #1F3F68;
     opacity: 0.6;
-
 }
 h1 {
+    font: normal 500 44px/74px 'Roboto';
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #000;
+}
+.index h1 {
     font: normal 300 64px/74px 'Roboto';
     text-align: center;
     letter-spacing: 0.04em;
@@ -54,8 +59,65 @@ h2 {
 h3 {
     font: normal 400 20px/30px 'Roboto';
     text-align: center;
-    letter-spacing: 0.05em;
-    color: #000;    
+    letter-spacing: 0.04em;
+    color: #000;
+}
+form label {
+    display: grid;
+    font: normal 400 16px/30px 'Roboto';
+    letter-spacing: 0.04em;
+    color: #1F3F68;
+    opacity: 0.8;
+    margin: 32px auto;
+}
+form ::placeholder {
+    opacity: 0.6;
+}
+.contacts h3 {
+    color: #1F3F68;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 40px 0 24px;
+}
+.contactform .contactform-wrapper > h3 {
+    text-transform: uppercase;
+    margin: 0 0 16px;
+}
+.contactform input, .contactform textarea {
+    height: 28px;
+    width: auto;
+    border: 1px solid #356EAD;
+    border-radius: 10px;
+    padding: 21px 36px;
+    margin-top: 8px;
+    font: normal 300 16px/30px 'Roboto';
+    letter-spacing: 0.04em;
+    color: #1F3F68;
+}
+.contactform button {
+    width: 100%;
+    height: 72px;
+    background: #5A98D0;
+    box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #FFF;
+    margin-top: 40px;
+}
+.contactform textarea {
+    height: 100px;
+}
+.bubble h1 {
+    color: #fff;
+}
+.bubble h3 {
+    color: rgba(255, 255, 255, 0.6);
+    margin: 16px auto;
+    width: 780px;
 }
 button {
     cursor: pointer;
@@ -63,8 +125,19 @@ button {
     color: #000;
 }
 .container {
+    width: 940px;
+    margin: 0 auto;
+}
+.blank {
+    padding: 32px;
+}
+header .container, .index .container {
     width: 1140px;
     margin: 0 auto;
+}
+header .container {
+    height: 48px;
+    padding: 34px 0;
 }
 html {
     height: 100%;
@@ -79,9 +152,18 @@ body {
 }
 header {
     flex: none;
-    height: 116px;
+    height: 489px;
+    background: linear-gradient(0deg, #EBF3FB 0%, #EBF3FB 8.84%, rgba(152, 195, 232, 0) 31.12%);
     position: relative;
-    z-index: 1;
+    z-index: -1;
+}
+header.index {
+    height: 116px;
+}
+.bubble {
+    height: 194px;
+    padding-top: 56px;
+    background: url('../images/bubble.png') no-repeat center center, linear-gradient(253.6deg, #98D0FC 2.46%, #3481D7 93.24%);
 }
 .logo {
     float: left;
@@ -95,16 +177,15 @@ header {
     height: 38px;
     background: url('../images/address-book.png') center center no-repeat;
 }
-header .container {
-    height: 48px;
-    padding: 34px 0;
-}
 main {
     flex: auto;
+    margin-top: -60px;
+}
+main.index {
     margin-top: -116px;
 }
 main h2 {
-    margin: 32px 0;
+    margin: 64px 0;
 }
 .automotion {
     flex: none;
@@ -139,19 +220,22 @@ main h2 {
 .rectangles {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    margin: 32px auto;
 }
 .rectangle {
-    width: 359px;
-    height: 480px;
     box-shadow: 5px 20px 50px rgba(16, 112, 177, .2);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    background: #fff;
 }
 .rectangle h3 {
     color: #1F3F68;
     text-align: left;
-    margin: 216px 32px 14px;
+    letter-spacing: 0.05em;
+    margin: 14px 32px;
 }
 .rectangle p {
     color: #1F3F68;
@@ -172,44 +256,108 @@ main h2 {
     height: 16px;
     padding-right: 40px;
 }
+.phone::before {
+    content: '';
+    background: url(../images/phone.svg) no-repeat center left;
+    background-size: 20px;
+    width: 24px;
+    height: 24px;
+    padding-left: 40px;
+}
+.web::before {
+    content: '';
+    background: url(../images/web.svg) no-repeat center left;
+    background-size: 20px;
+    width: 24px;
+    height: 24px;
+    padding-left: 40px;
+}
+.mail::before {
+    content: '';
+    background: url(../images/mail.svg) no-repeat center left;
+    background-size: 20px;
+    width: 24px;
+    height: 24px;
+    padding-left: 40px;
+}
 .make {
     background: #fff url('../images/make.png') no-repeat calc(50% - 24px) 44px;
+    width: 359px;
+    height: 278px;
+    padding-top: 202px;
 }
 .bring {
     background: #fff url('../images/bring.png') no-repeat calc(50% + 4px) 44px;
+    width: 359px;
+    height: 278px;
+    padding-top: 202px;
 }
 .build {
     background: #fff url('../images/build.png') no-repeat calc(50% - 12px) 44px;
+    width: 359px;
+    height: 278px;
+    padding-top: 202px;
+}
+.contacts {
+    width: 300px;
+    background: #fff url('../images/contacts.png') no-repeat top center;
+    padding-top: 197px;
+}
+.contactform {
+    width: 540px;
+    height: 800px;
+}
+.contactform > div {
+    margin: 56px;
+}
+.map {
+    height: 480px;
+    margin: 32px auto;
+    background: #fff url('../images/map.png') no-repeat center center;
+    background-size: cover;
 }
 .description {
     width: 750px;
     margin: 0 auto;
 }
+.contacts a {
+    color: #1F3F68;
+}
+.contacts p {
+    font-weight: 300;
+    letter-spacing: 0.04em;
+}
 .description p {
     color: #222;
-    font: normal 400 16px/26px 'Roboto';
     text-align: center;
-    letter-spacing: 0.05em;
     margin-bottom: 32px;
 }
+.projects.container {
+    margin: 64px auto;
+}
+.projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    grid-template-areas: "smarthome smarthome" "sparkline repetition";
+}
+
 .smarthome {
-    background: url(../images/group.png) no-repeat calc(0% - 32px) calc(100% - -32px), linear-gradient(89.99deg, #1F3F68 3.62%, rgba(31, 63, 104, 0.37) 97.78%), url(../images/installation.png) no-repeat center center;    height: 480px;
+    background: url(../images/group.png) no-repeat left bottom, linear-gradient(89.99deg, #1F3F68 3.62%, rgba(31, 63, 104, 0.37) 97.78%), url(../images/installation.png) no-repeat center center;    height: 480px;
+    background-size: contain, cover, cover;
     border-radius: 10px;
+    grid-area: smarthome;
 }
 .smarthome h2 {
     font-size: 32px;
     font-weight: 400;
     text-align: right;
     color: #FFF;
-    padding: 64px;
+    margin-right: 64px;
 }
-.apps {
-    display: flex;
-    justify-content: space-between;
-    margin: 32px auto;
-} 
+
 .app {
-    width: 554px;
+    width: 100%;
     height: 417px;
     border-radius: 10px;
 }
@@ -223,10 +371,12 @@ main h2 {
 .sparkline {
     background: linear-gradient(308.85deg, rgba(66, 165, 245, 0.4) -1.71%, rgba(21, 101, 192, 0.6) 74.54%), url('../images/sparkline.png') center center;
     background-size: cover;
+    grid-area: sparkline;
 }
 .repetition {
     background: linear-gradient(308.85deg, rgba(66, 165, 245, 0.4) -1.71%, rgba(21, 101, 192, 0.6) 74.54%), url('../images/repetition.png');
     background-size: cover;
+    grid-area: repetition;
 }
 footer {
     flex: none;
@@ -281,9 +431,32 @@ ol li::before {
 }
 
 @media screen and (max-width: 1204px) {
-    .container {
+    .automotion > .container {
+        background-size: 336px;
+        background-position: right calc(100% - 108px);
+
+    }
+    .rectangles {
+        flex-direction: column;
+    }
+    
+    header .container, .index .container, .container {
         width: auto;
         margin: 0 32px;
+    }
+    .projects.container {
+        margin: 64px 32px;
+        width: auto;
+    }
+    .smarthome {
+        height: 297px;
+    }
+    .app {
+        height: 293px;
+    }
+    .map {
+        height: 392px;
+        margin: 32px 0;;
     }
     footer {
         height: 654px;

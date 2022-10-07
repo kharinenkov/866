@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>Главная страница</title>
+         <title>Контакты</title>
         <script type="text/javascript" src="js/script.js"></script>
         <link rel="stylesheet" href="css/style.css">
     </head>
@@ -13,13 +13,43 @@
                 <a href="#" class="logo"></a>
                 <a href="user" class="user"></a>
             </div>
+            <div class="bubble">
+                <h1>Contact Us</h1>
+                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
             </div>
         </header>
-        <main class="index">
-            <div class="container"></div>
-            <div class="container"></div>
-            <div class="container"></div>
-            <div class="container"></div>            
+        <main>
+            <div class="container rectangles">
+                <div class="contacts">
+                    <h3>Address</h3>
+                    <p>Id convallis placerat sit sed duis id amet volutpat quam a, pharetra.</p>
+                    <h3>Phone</h3>
+                    <p class="phone">+7-812-7313-4321</p>
+                    <p class="phone">+7-817-0000-1234</p>
+                    <h3>Online Service</h3>
+                    <p class="web"><a href="#">www.site.com</a></p>
+                    <p class="mail"><a href="mailto:hello.site@gmail.com">hello.site@gmail.com</a></p>
+                </div>
+                <div class="rectangle contactform">
+                    <div class="contactform-wrapper">
+                        <h3>Send Us Message</h3>
+                        <form name="contactform">
+                            <label for "fullname">Full Name
+                                <input type="text" id="fullname" name="fullname" value="" placeholder="Your Name">
+                            </label>
+                            <label for "email">Your Email
+                                <input type="text" id="email" name="email" value="" placeholder="Your Email">
+                            </label>
+                            <label for "message">Message
+                                <textarea id="message" name="message" placeholder="Your Message"></textarea>
+                            </label>
+                            <button type="button">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container blank"></div>
+            <div class="container map"></div>
         </main>
         <footer>
             <div class="container">
