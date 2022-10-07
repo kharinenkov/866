@@ -35,8 +35,7 @@ a {
     cursor: pointer;
 }
 p {
-    color: #1F3F68;
-    opacity: 0.6;
+    color: #222;
 }
 h1 {
     font: normal 500 44px/74px 'Roboto';
@@ -48,7 +47,7 @@ h1 {
     font: normal 300 64px/74px 'Roboto';
     text-align: center;
     letter-spacing: 0.04em;
-    color: #000;
+    color: #1F3F68;
 }
 h2 {
     font: normal 300 36px/46px 'Roboto';
@@ -71,17 +70,20 @@ form label {
     margin: 32px auto;
 }
 form ::placeholder {
-    opacity: 0.6;
+    color: #1F3F68;
+    opacity: 0.5;
 }
 .contacts h3 {
     color: #1F3F68;
     text-align: left;
     text-transform: uppercase;
     margin: 40px 0 24px;
+    font-weight: 500;
 }
 .contactform .contactform-wrapper > h3 {
     text-transform: uppercase;
     margin: 0 0 16px;
+    font-weight: 500;
 }
 .contactform input, .contactform textarea {
     height: 28px;
@@ -93,6 +95,7 @@ form ::placeholder {
     font: normal 300 16px/30px 'Roboto';
     letter-spacing: 0.04em;
     color: #1F3F68;
+    opacity: 0.4;
 }
 .contactform button {
     width: 100%;
@@ -159,6 +162,7 @@ header {
 }
 header.index {
     height: 116px;
+    background: none;
 }
 .bubble {
     height: 194px;
@@ -192,6 +196,7 @@ main h2 {
     position: relative;
     height: 768px;
     background: linear-gradient(0deg, #EBF3FB 0%, #EBF3FB 8.84%, rgba(152, 195, 232, 0) 31.12%);
+    color: #1F3F68;
 }
 .automotion > .container {
     background: url('../images/illustration.png') no-repeat right calc(100% - 93px);
@@ -200,12 +205,12 @@ main h2 {
     flex-direction: column;
 }
 .automotion h1 {
-    color: #1F3F68;
     text-align: left;
     margin: 189px 0 32px;
 }
 .automotion p {
     width: 425px;
+    opacity: 0.6;
 }
 .automotion button {
     background: #5A98D0;
@@ -283,29 +288,28 @@ main h2 {
 .make {
     background: #fff url('../images/make.png') no-repeat calc(50% - 24px) 44px;
     width: 359px;
-    height: 278px;
-    padding-top: 202px;
+    height: 292px;
+    padding-top: 188px;
 }
 .bring {
     background: #fff url('../images/bring.png') no-repeat calc(50% + 4px) 44px;
     width: 359px;
-    height: 278px;
-    padding-top: 202px;
+    height: 292px;
+    padding-top: 188px;
 }
 .build {
     background: #fff url('../images/build.png') no-repeat calc(50% - 12px) 44px;
     width: 359px;
-    height: 278px;
-    padding-top: 202px;
+    height: 292px;
+    padding-top: 188px;
 }
 .contacts {
     width: 300px;
     background: #fff url('../images/contacts.png') no-repeat top center;
-    padding-top: 197px;
+    padding-top: 196px;
 }
 .contactform {
     width: 540px;
-    height: 800px;
 }
 .contactform > div {
     margin: 56px;
@@ -326,9 +330,10 @@ main h2 {
 .contacts p {
     font-weight: 300;
     letter-spacing: 0.04em;
+    opacity: 0.6;
+    color: #1F3F68;
 }
 .description p {
-    color: #222;
     text-align: center;
     margin-bottom: 32px;
 }
@@ -338,7 +343,7 @@ main h2 {
 .projects {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    grid-gap: 32px;
     grid-template-areas: "smarthome smarthome" "sparkline repetition";
 }
 
@@ -439,10 +444,30 @@ ol li::before {
     .rectangles {
         flex-direction: column;
     }
-    
+    .contactform {
+        width: 520px;
+    }    
     header .container, .index .container, .container {
         width: auto;
         margin: 0 32px;
+    }
+    .rectangle a {
+        margin: 12px 0 26px 32px;
+    }
+    .make {
+        width: 335px;
+        height: auto;
+    }
+    .bring {
+        width: 335px;
+        height: auto;
+    }
+    .build {
+        width: 335px;
+        height: auto;
+    }
+    .description {
+        width: 520px;
     }
     .projects.container {
         margin: 64px 32px;
@@ -454,12 +479,16 @@ ol li::before {
     .app {
         height: 293px;
     }
+    .app h2 {
+        margin: 24px;
+    }
     .map {
         height: 392px;
-        margin: 32px 0;;
+        margin: 32px 0;
     }
     footer {
         height: 654px;
+        margin-top: 64px;
     }
     footer .container {
         padding: 64px 92px;
@@ -469,7 +498,6 @@ ol li::before {
         width: 133px;
         margin: 95px 0 65px 0px;
     }
-
     footer h2 {
         width: 336px;
         margin: -16px 0  22px;
@@ -494,24 +522,105 @@ ol li::before {
 }
 
 @media screen and (max-width: 767px) {
-    body {
-        display: block;
-        height: auto;
-    }
-    .container {
+    header .container, .index .container, .container {
         margin: 0 16px;
     }
-    header {
-        height: 80px;
+    .automotion > .container {
+        background: none;
     }
     header .container {
         padding: 16px 0;
     }
+    .automotion {
+        height: 376px;
+    }
+    .automotion h1 {
+        font: normal 300 32px/38px 'Roboto';
+        text-align: center;
+        margin: 92px 0 12px;
+    }
+    .automotion p {
+        width: auto;
+        text-align: center;
+    }
+    .automotion button {
+        font-size: 12px;
+        width: 108px;
+        height: 27px;
+        margin: auto auto 41px;
+    }
     main {
         margin-top: -80px;
     }
+    main h2 {
+        margin: 48px 0;
+    }
+    h1 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    h2 {
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: normal;
+    }
+    .rectangle a {
+        margin: auto 0 21px 32px;
+    }
+    .description {
+        width: auto;
+        margin: 0 16px;
+    }
+    .projects {
+        display: block;
+    }
+    .smarthome {
+        height: 144px;
+    }
+    .app {
+        height: 255px;
+    }
+    .app h2, .smarthome h2 {
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: normal;
+        padding: 16px 0;
+        margin: 16px;
+    }
+    .bubble h3 {
+        font-size: 16px;
+        line-height: 30px;
+        width: auto;
+    }
+    .contactform {
+        width: auto;
+        margin: 0 16px;
+    }
+    .contactform > div {
+        margin: 36px;
+    }
+    .contactform input, .contactform textarea {
+        padding: 8px 26px;
+        margin: 0;
+    }
+    .contactform label {
+        font-size: 14px;
+        margin: 24px 0;
+    }
+    .contactform button {
+        height: 46px;
+        margin-top: 24px;
+    }
+    .blank {
+        padding: 16px;
+    }
+    .map {
+        height: 349px;
+        margin: 0;
+    }
     footer {
-        height: 553px
+        height: 553px;
+        margin-top: 32px;
     }
     footer .container {
         display: flex;
