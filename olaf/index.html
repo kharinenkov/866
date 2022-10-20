@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Песнь о вещем Олеге</title>
+        
+        <style>
+            @font-face {
+                font-family: 'ua-brand';
+                src: url('./fonts/ua-brand-black.woff2') format('woff2');
+                font-weight: bold;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: 'ua-brand';
+                src: url('./fonts/ua-brand-bold.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: 'velesregular';
+                src: url('./fonts/veles-regular.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            h1 {
+                font-family: 'ua-brand';
+            }
+
+            h3 {
+                font-family: 'ua-brand';
+                font-weight: normal;
+            }
+
+            div {
+                width: fit-content;
+                margin: 10px auto;
+            }
+
+            ul {
+                margin: 0 10px;
+                padding: 25px;
+                color: #6f370f;
+                font-family: 'velesregular';
+                font-size: 14px;
+                border-radius: 25px;
+                box-shadow: 10px 10px 10px rgba(221, 190, 160, .5);
+                width: auto;
+                background: linear-gradient( rgba(255, 255, 255, .9), rgba(255, 255, 255, .1) ), url(./images/beresta.png);
+                background-size: cover;
+                box-shadow: 0 0 10px 10px white inset;
+            }
+
+            ul:nth-child(even) {
+                margin-left: 75px;
+            }
+
+            ul:nth-child(odd) {
+                margin-right: 75px;
+            }
+
+            li {
+                list-style: none;
+                line-height: 2em;
+                white-space: nowrap;
+            }
+
+            li:nth-child(2), li:nth-child(4) {
+                padding-left: 25px; 
+            }
+
+            .speach {
+                font-style: italic;
+                color: #366797;
+            }
+        </style>
+    </head>
+    
+    <body>
+
+            <!--
+        1. Подключить красивый шрифт по собственному выбору.
+        2. Сделать заголовки с этим шрифтом разной жирности.
+        3. Сделать строфы блочными элементами с отступами и цветным фоном. Углы закруглить. Четные строфы сделать с отступом.
+        4. Вторую и четвертую строки в каждой строфе сделать с отступами.
+        5. Прямую речь выделить курсивом и цветом.
+        -->
+        <div>
+            <h1>Песнь о вещем Олеге</h1>
+
+            <h3>Стихотворение Александра Пушкина</h3>
+        </div>
+
+        <div>
+            <ul>
+                <li>Как ныне сбирается вещий Олег</li>
+                <li>Отмстить неразумным хозарам:</li>
+                <li>Их села и нивы за буйный набег</li>
+                <li>Обрек он мечам и пожарам;</li>
+                <li>С дружиной своей, в цареградской броне,</li>
+                <li>Князь по полю едет на верном коне.</li>
+            </ul>
+            <ul>
+                <li>Из темного леса навстречу ему</li>
+                <li>Идет вдохновенный кудесник,</li>
+                <li>Покорный Перуну старик одному,</li>
+                <li>Заветов грядущего вестник,</li>
+                <li>В мольбах и гаданьях проведший весь век.</li>
+                <li>И к мудрому старцу подъехал Олег.</li>
+            </ul>
+            <ul>
+                <li><span class="speach">«Скажи мне, кудесник, любимец богов,</span></li>
+                <li><span class="speach">Что сбудется в жизни со мною?</span></li>
+                <li><span class="speach">И скоро ль, на радость соседей-врагов,</span></li>
+                <li><span class="speach">Могильной засыплюсь землею?</span></li>
+                <li><span class="speach">Открой мне всю правду, не бойся меня:</span></li>
+                <li><span class="speach">В награду любого возьмешь ты коня».</span></li>
+            </ul>
+            <ul>
+                <li><span class="speach">«Волхвы не боятся могучих владык,</span></li>
+                <li><span class="speach">А княжеский дар им не нужен;</span></li>
+                <li><span class="speach">Правдив и свободен их вещий язык</span></li>
+                <li><span class="speach">И с волей небесною дружен.</span></li>
+                <li><span class="speach">Грядущие годы таятся во мгле;</span></li>
+                <li><span class="speach">Но вижу твой жребий на светлом челе,</span></li>
+            </ul>
+            <ul>
+                <li><span class="speach">Запомни же ныне ты слово мое:</span></li>
+                <li><span class="speach">Воителю слава — отрада;</span></li>
+                <li><span class="speach">Победой прославлено имя твое;</span></li>
+                <li><span class="speach">Твой щит на вратах Цареграда;</span></li>
+                <li><span class="speach">И волны и суша покорны тебе;</span></li>
+                <li><span class="speach">Завидует недруг столь дивной судьбе.</span></li>
+            </ul>
+            <ul>
+                <li><span class="speach">И синего моря обманчивый вал</span></li>
+                <li><span class="speach">В часы роковой непогоды,</span></li>
+                <li><span class="speach">И пращ, и стрела, и лукавый кинжал</span></li>
+                <li><span class="speach">Щадят победителя годы...</span></li>
+                <li><span class="speach">Под грозной броней ты не ведаешь ран;</span></li>
+                <li><span class="speach">Незримый хранитель могущему дан.</span></li>
+            </ul>
+            <ul>
+                <li><span class="speach">Твой конь не боится опасных трудов:</span></li>
+                <li><span class="speach">Он, чуя господскую волю,</span></li>
+                <li><span class="speach">То смирный стоит под стрелами врагов,</span></li>
+                <li><span class="speach">То мчится по бранному полю,</span></li>
+                <li><span class="speach">И холод и сеча ему ничего.</span></li>
+                <li><span class="speach">Но примешь ты смерть от коня своего».</span></li>
+            </ul>
+            <ul>
+                <li>Олег усмехнулся — однако чело</li>
+                <li>И взор омрачилися думой.</li>
+                <li>В молчанье, рукой опершись на седло,</li>
+                <li>С коня он слезает угрюмый;</li>
+                <li>И верного друга прощальной рукой</li>
+                <li>И гладит и треплет по шее крутой.</li>
+            </ul>
+            <ul>
+                <li><span class="speach">«Прощай, мой товарищ, мой верный слуга,</span></li>
+                <li><span class="speach">Расстаться настало нам время:</span></li>
+                <li><span class="speach">Теперь отдыхай! уж не ступит нога</span></li>
+                <li><span class="speach">В твое позлащенное стремя.</span></li>
+                <li><span class="speach">Прощай, утешайся — да помни меня.</span></li>
+                <li><span class="speach">Вы, отроки-други, возьмите коня!</span></li>
+            </ul>
+            <ul>
+                <li><span class="speach">Покройте попоной, мохнатым ковром;</span></li>
+                <li><span class="speach">В мой луг под уздцы отведите:</span></li>
+                <li><span class="speach">Купайте, кормите отборным зерном;</span></li>
+                <li><span class="speach">Водой ключевою поите».</span></li>
+                <li>И отроки тотчас с конем отошли,</li>
+                <li>А князю другого коня подвели.</li>
+            </ul>
+            <ul>
+                <li>Пирует с дружиною вещий Олег</li>
+                <li>При звоне веселом стакана.</li>
+                <li>И кудри их белы, как утренний снег</li>
+                <li>Над славной главою кургана...</li>
+                <li>Они поминают минувшие дни</li>
+                <li>И битвы, где вместе рубились они...</li>
+            </ul>
+            <ul>
+                <li><span class="speach">«А где мой товарищ?</span> — промолвил Олег,—</li>
+                <li><span class="speach">Скажите, где конь мой ретивый?</span></li>
+                <li><span class="speach">Здоров ли? всё так же ль легок его бег?</span></li>
+                <li><span class="speach">Всё тот же ль он бурный, игривый?»</span></li>
+                <li>И внемлет ответу: на холме крутом</li>
+                <li>Давно уж почил непробудным он сном.</li>
+            </ul>
+            <ul>
+                <li>Могучий Олег головою поник</li>
+                <li>И думает: <span class="speach">«Что же гаданье?</span></li>
+                <li><span class="speach">Кудесник, ты лживый, безумный старик!</span></li>
+                <li><span class="speach">Презреть бы твое предсказанье!</span></li>
+                <li><span class="speach">Мой конь и доныне носил бы меня».</span></li>
+                <li>И хочет увидеть он кости коня.</li>
+            </ul>
+            <ul>
+                <li>Вот едет могучий Олег со двора,</li>
+                <li>С ним Игорь и старые гости,</li>
+                <li>И видят: на холме, у брега Днепра,</li>
+                <li>Лежат благородные кости;</li>
+                <li>Их моют дожди, засыпает их пыль,</li>
+                <li>И ветер волнует над ними ковыль.</li>
+            </ul>
+            <ul>
+                <li>Князь тихо на череп коня наступил</li>
+                <li>И молвил: <span class="speach">«Спи, друг одинокий!</span></li>
+                <li><span class="speach">Твой старый хозяин тебя пережил:</span></li>
+                <li><span class="speach">На тризне, уже недалекой,</span></li>
+                <li><span class="speach">Не ты под секирой ковыль обагришь</span></li>
+                <li><span class="speach">И жаркою кровью мой прах напоишь!</span></li>
+            </ul>
+            <ul>
+                <li><span class="speach">Так вот где таилась погибель моя!</span></li>
+                <li><span class="speach">Мне смертию кость угрожала!»</span></li>
+                <li>Из мертвой главы гробовая змия</li>
+                <li>Шипя между тем выползала;</li>
+                <li>Как черная лента, вкруг ног обвилась:</li>
+                <li>И вскрикнул внезапно ужаленный князь.</li>
+            </ul>
+            <ul>
+                <li>Ковши круговые, заленясь, шипят</li>
+                <li>На тризне плачевной Олега:</li>
+                <li>Князь Игорь и Ольга на холме сидят;</li>
+                <li>Дружина пирует у брега;</li>
+                <li>Бойцы поминают минувшие дни</li>
+                <li>И битвы, где вместе рубились они.</li>
+            </ul>
+        </div>    
+    </body>
+</html>
