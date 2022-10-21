@@ -2,33 +2,358 @@
 <html lang="ru">
     <head>
         <meta charset="utf-8">
-        <title>Угадайка</title>
+        <title>Игра "Угадай число"</title>
         <script>
-            let quest = Math.floor(Math.random() * 100 + 1);
+            document.addEventListener('DOMContentLoaded', function() {
+                let quest = Math.floor(Math.random() * 100 + 1);
+                let answer = document.querySelector('#answer');
+                let status = document.querySelector('#status');
+                let message = document.querySelector('#help-message');
+                let attempt = 1;
 
-            
-            while (true) {
-                setTimeout(function(){
-                    let ans = +prompt('Введите число от 1 до 100');
-                }, 5000);
-                    
-                    if (isNaN(ans)) {
-                        alert('Я просил ввести число');
-                        continue;
-                    } else if (quest == ans) {
-                        alert ('Угадал');
-                        break;
-                    } else if (quest  > ans) {
-                        alert ('Бери больше');
-                    } else if (quest < ans) {
-                        alert ('Бери меньше');
+
+                document.querySelector('#go-button').addEventListener('click', () => {
+                    document.querySelector('#info-wrapper').style.display = 'none';
+                    document.querySelector('#game-wrapper').style.display = 'block';
+                    answer.focus();
+                });
+
+                document.querySelector('#ok-button').addEventListener('click', () => {
+
+                    if (isNaN(answer.value)) {
+                        message.innerHTML = 'Надо ввести число';
+                        answer.focus();
+                        answer.select();
+                    } else if (quest == answer.value) {
+                        document.querySelector('#attempt').innerHTML = attempt;
+                        document.querySelector('#game-wrapper').style.display = 'none';
+                        document.querySelector('#congradulation-wrapper').style.display = 'block';
+                        status.innerHTML = 'Попыток: 0';
+                        message.innerHTML = '';
+                        answer.value = '';
+                    } else if (quest  > answer.value) {
+                        status.innerHTML = 'Попыток: ' + attempt++;
+                        answer.focus();
+                        answer.select();
+                        message.innerHTML = 'Надо больше';
                     } else {
-                        alert ('Что то пошло ни так');
+                        status.innerHTML = 'Попыток: ' + attempt++; 
+                        answer.focus();
+                        answer.select();
+                        message.innerHTML = 'Надо меньше';
                     }
-                }
+                });
 
+                document.querySelector('#new-button').addEventListener('click', () => {
+                    attempt = 1;
+                    quest = Math.floor(Math.random() * 100 + 1);
+                    document.querySelector('#congradulation-wrapper').style.display = 'none';
+                    document.querySelector('#game-wrapper').style.display = 'block';
+                    answer.focus();
+                });
+            });
         </script>
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background: #008080;
+                position: relative;
+                min-height: 460px;
+                min-width: 160px;
+                font: 14px Arial, sans-serif; 
+            }
+            div {
+                user-select: none;
+            }
+            p {
+                margin: 0;
+                margin-bottom: 12px;
+            }
+            #info-wrapper {
+                width: 460px;
+                height: 160px;
+                border: 1px solid black;
+                background: #000080;
+                display: block;
+                position: absolute;
+                top: calc(50% - 80px);
+                left: calc(50% - 230px);
+            }
+            .info {
+                margin: 4px;
+                background: #fff;
+                display: grid;
+                grid-template-rows: repeat(2, 48px) 56px;
+                justify-items: center;
+                align-items: center;
+            }
+            button {
+                font: 12px Arial, sans-serif;
+                outline: 2px solid black;
+                border-radius: 1px;
+                border: 2px outset #fff;
+                background: #c0c0c0;
+                cursor: pointer;
+                width: 80px;
+                height: 19px;
+
+            }
+            input {
+                height: 22px;
+                width: 60%;
+                border: 1px solid black;
+                border-radius: 0;
+                font: 14px Arial, sans-serif; 
+                padding: 0 3px;
+                margin: 0;
+                outline: none;
+            }
+            button:active {
+                border: 2px inset #fff;
+            }
+            button span {
+                padding: 0 2px;
+            }
+            button span:hover {
+                border: 1px dotted;
+            }
+            #go-button {
+                height: 32px;
+                width: 126px;
+            }
+            #game-wrapper {
+                width: 460px;
+                height: 160px;
+                background: #c0c0c0;
+                display: none;
+                position: absolute;
+                top: calc(50% - 80px);
+                left: calc(50% - 230px);
+            }
+            .game {
+                height: 100%;
+                display: grid;
+                grid-template-rows: 22px auto 22px;
+                grid-template-columns: 22px auto 22px;
+            }
+            .window-active {
+                background: #000080;
+                color: #fff;
+                font-weight: bold;
+            }
+            .left-top {
+                border-left: 4px double black;
+                border-top: 4px double black;
+                position: relative;
+            }
+            .arrow-down {
+                border-right: 2px solid #808080;
+                border-bottom: 2px solid #808080;
+                border-left: 1px solid #fff;
+                border-top: 1px solid #fff;
+                height: 15px;
+                width: 15px;
+                text-align: end;
+                font-size: 11px;
+                line-height: 15px;
+            }
+            .dash {
+                width: 11px;
+                height: 1px;
+                border: 1px solid black;
+                box-shadow: 1px 1px #808080;
+                background: #fff;
+                position: absolute;
+                top: 7px;
+                left: 2px;
+            }
+            .right-top {
+                border-right: 4px double black;
+                border-top: 4px double black;
+            }
+            .window-title {
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+                border-top: 4px double black;
+            }
+            .window-title div, .window-title-wrapper div {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+            .window-work-area {
+                grid-column: 1/4;
+                border-left: 4px double black;
+                border-right: 4px double black;
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+            }
+            .work-area {
+                background: #fff;
+                width: 100%;
+                height: 100%;
+            }
+            .work-area-inside {
+                padding: 8px;
+            }
+            .left-bottom {
+                border-left: 4px double black;
+                border-bottom: 4px double black;
+            }
+            .right-bottom {
+                border-right: 4px double black;
+                border-bottom: 4px double black;
+            }
+            .center-bottom {
+                border-bottom: 4px double black;
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+            }
+            .statusbar {
+                position: absolute;
+                left: 4px;
+                bottom: 4px;
+                height: 18px;
+                width: 452px;
+                display: grid;
+                grid-template-columns: 60% 40%;
+                background: #c0c0c0;
+            }
+            #status {
+                border-right: 1px inset black;
+                border-top: 1px solid #fff;
+                border-left: 1px solid #fff;
+                padding-left: 8px;
+            }
+            .decirate {
+                border-top: 1px solid #fff;
+                border-left: 1px solid #fff;
+                display: flex;
+                justify-content: space-around;
+            }
+            .f:first-child {
+                padding-left: 12px;
+                margin-left: 6px;
+            }
+            .f:last-child {
+                margin-right: 6px;
+            }
+            .f {
+                border: 1px inset #fff;
+                margin: 2px 1px 1px;
+                width: 20%;
+            }
+            #ok-button, #new-button {
+                float: right;
+            }
+            #help-message {
+                float: right;
+            }
+            #congradulation-wrapper {
+                width: 460px;
+                height: 160px;
+                border: 1px solid black;
+                background: #000080;
+                display: none;
+                position: absolute;
+                top: calc(50% - 80px);
+                left: calc(50% - 230px);
+            }
+            .congradulation {
+                height: 152px;
+                margin: 4px;
+                background: #fff;
+                display: grid;
+                grid-template-rows: 20px auto;
+                grid-template-columns: 20px auto;
+                justify-items: center;
+                align-items: center;
+            }
+            .dash-wrapper {
+                position: relative;
+                background: #c0c0c0;
+                border-right: 1px solid black;
+                border-bottom: 1px solid black;
+                width: 18px;
+                height: 18px;
+            }
+            .window-title-wrapper {
+                height: 18px;
+                width: 100%;
+                margin-right: 1px;
+                border-bottom: 1px solid black;
+            }
+        </style>
     </head>
     <body>
+        <div id="info-wrapper">
+            <div class="info">
+                <div>Игра "Угадай число"</div>
+                <div>Для начала игры нажмите кнопку</div>
+                <button id="go-button"><span>Начать игру</span></button>
+            </div>
+        </div>
+        <div id="game-wrapper">
+            <div class="game">
+                <div class="left-top">
+                    <div class="dash"></div>
+                </div>
+                <div class="window-title">
+                    <div class="window-active">Угадай число</div>
+                </div>
+                <div class="right-top">
+                    <div class="arrow-down">&#9660;</div>
+                </div>
+                <div class="window-work-area">
+                    <div class="work-area">
+                        <div class="work-area-inside">
+                            <form onsubmit="event.preventDefault();">
+                                <button class="button" id="ok-button"><span>Ok!</span></button>
+                                <p>Введите число от 1 до 100:</p>
+                                <input id="answer" type="text" name="answer" maxlength="3">
+                                <span id="help-message"></span>
+                            </form>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="left-bottom"></div>
+                <div class="center-bottom"></div>
+                <div class="right-bottom"></div>
+            </div>
+            <div class="statusbar">
+                <div id="status">Попыток: 0</div>
+                <div class="decirate">
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                </div>
+            </div>
+        </div>
+        <div id="congradulation-wrapper">
+            <div class="congradulation">
+                <div class="dash-wrapper">
+                    <div class="dash"></div>
+                </div>
+                <div class="window-title-wrapper">
+                    <div class="window-active">Победа!!!</div>
+                </div>
+                <div></div>
+                <div class="work-area">
+                    <div class="work-area-inside">
+                        <button class="button" id="new-button"><span>Ok!</span></button>
+                        <p>Вы угадали с <span id="attempt"></span> попыток.</p>
+                        <p>Сыграем еще раз?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>

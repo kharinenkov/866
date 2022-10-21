@@ -1,0 +1,32 @@
+table {
+    border-collapse: collapse;
+    outline: 1px solid black;
+}
+
+td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 60px;
+    user-select: none;
+}
+
+th {
+    background: lightgray;
+}
+
+tr:nth-child(even) td:nth-child(odd),
+tr:nth-child(odd) td:nth-child(even) {
+    background: gray;
+}
+
+tr:first-child th, tr:last-child th {
+    height: 50px;
+}
+
+th:first-child, th:last-child {
+    width: 50px;
+}
+.td {
+    background: gray;
+}
