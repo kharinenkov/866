@@ -11,6 +11,9 @@
                 let message = document.querySelector('#help-message');
                 let attempt = 1;
 
+                answer.addEventListener('focus', () => answer.select());
+
+                document.addEventListener('contextmenu', event => event.preventDefault());
 
                 document.querySelector('#go-button').addEventListener('click', () => {
                     document.querySelector('#info-wrapper').style.display = 'none';
@@ -23,7 +26,6 @@
                     if (isNaN(answer.value)) {
                         message.innerHTML = 'Надо ввести число';
                         answer.focus();
-                        answer.select();
                     } else if (quest == answer.value) {
                         document.querySelector('#attempt').innerHTML = attempt;
                         document.querySelector('#game-wrapper').style.display = 'none';
@@ -34,12 +36,10 @@
                     } else if (quest  > answer.value) {
                         status.innerHTML = 'Попыток: ' + attempt++;
                         answer.focus();
-                        answer.select();
                         message.innerHTML = 'Надо больше';
                     } else {
                         status.innerHTML = 'Попыток: ' + attempt++; 
                         answer.focus();
-                        answer.select();
                         message.innerHTML = 'Надо меньше';
                     }
                 });
@@ -285,7 +285,7 @@
             .window-title-wrapper {
                 height: 18px;
                 width: 100%;
-                margin-right: 1px;
+                margin-right: 2px;
                 border-bottom: 1px solid black;
             }
         </style>
