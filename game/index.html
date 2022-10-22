@@ -5,19 +5,65 @@
         <title>Игра "Угадай число"</title>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                let quest = Math.floor(Math.random() * 100 + 1);
-                let answer = document.querySelector('#answer');
-                let status = document.querySelector('#status');
-                let message = document.querySelector('#help-message');
+                let x, y, deltaX, deltaY, isMove;
                 let attempt = 1;
+                let quest = Math.floor(Math.random() * 100 + 1);
 
-                answer.addEventListener('focus', () => answer.select());
+                let answer = document.querySelector('#answer'),
+                    status = document.querySelector('#status'),
+                    message = document.querySelector('#help-message');
+
+                let info = document.querySelector('#info-wrapper'),
+                    game = document.querySelector('#game-wrapper'),
+                    congradulation = document.querySelector('#congradulation-wrapper');
+
+                let win = document.querySelectorAll('.movable');
 
                 document.addEventListener('contextmenu', event => event.preventDefault());
 
+                win.forEach(item => {
+                    item.addEventListener('mousedown', function(e) {
+                        this.classList.add('is_move');
+                        isMove = this.closest('.window');
+                        y = isMove.getBoundingClientRect().top;
+                        x = isMove.getBoundingClientRect().left;
+                        deltaX = e.clientX - x;
+                        deltaY = e.clientY - y;
+                    })
+                });
+                win.forEach(item => {
+                    item.addEventListener('mouseup', function() {
+                        this.classList.remove('is_move');
+                    })
+                });
+                win.forEach(item => {
+                    item.addEventListener('mouseout', function() {
+                        this.classList.remove('is_move');
+                    })
+                });
+                win.forEach(item => {
+                    item.addEventListener('mousemove', function(e) {
+                        if (this.classList.contains('is_move')) {
+                            isMove = this.closest('.window');
+                            if ((e.clientX - deltaX > 0) && ((e.clientX - deltaX) < (document.body.clientWidth - isMove.offsetWidth))) {
+                                isMove.style.left = (e.clientX - deltaX) + 'px';
+                            }
+                            if ((e.clientY - deltaY > 0) && ((e.clientY - deltaY) < (document.body.clientHeight - isMove.offsetHeight))) {
+                                isMove.style.top = (e.clientY - deltaY) + 'px';
+                            }
+                        }
+                    })
+                });
+
+                answer.addEventListener('focus', () => answer.select());
+
                 document.querySelector('#go-button').addEventListener('click', () => {
-                    document.querySelector('#info-wrapper').style.display = 'none';
-                    document.querySelector('#game-wrapper').style.display = 'block';
+                    info.style.display = 'none';
+                    info.style.removeProperty('left');
+                    info.style.removeProperty('top');
+
+                    game.style.display = 'block';
+
                     answer.focus();
                 });
 
@@ -26,20 +72,28 @@
                     if (isNaN(answer.value)) {
                         message.innerHTML = 'Надо ввести число';
                         answer.focus();
+                        answer.select()
                     } else if (quest == answer.value) {
                         document.querySelector('#attempt').innerHTML = attempt;
-                        document.querySelector('#game-wrapper').style.display = 'none';
-                        document.querySelector('#congradulation-wrapper').style.display = 'block';
+
+                        game.style.display = 'none';
+                        game.style.removeProperty('left');
+                        game.style.removeProperty('top');
+
+                        congradulation.style.display = 'block';
+
                         status.innerHTML = 'Попыток: 0';
                         message.innerHTML = '';
                         answer.value = '';
                     } else if (quest  > answer.value) {
                         status.innerHTML = 'Попыток: ' + attempt++;
                         answer.focus();
+                        answer.select()
                         message.innerHTML = 'Надо больше';
                     } else {
                         status.innerHTML = 'Попыток: ' + attempt++; 
                         answer.focus();
+                        answer.select()
                         message.innerHTML = 'Надо меньше';
                     }
                 });
@@ -47,8 +101,13 @@
                 document.querySelector('#new-button').addEventListener('click', () => {
                     attempt = 1;
                     quest = Math.floor(Math.random() * 100 + 1);
-                    document.querySelector('#congradulation-wrapper').style.display = 'none';
-                    document.querySelector('#game-wrapper').style.display = 'block';
+
+                    congradulation.style.display = 'none';
+                    congradulation.style.removeProperty('left');
+                    congradulation.style.removeProperty('top');
+
+                    game.style.display = 'block';
+
                     answer.focus();
                 });
             });
@@ -291,20 +350,20 @@
         </style>
     </head>
     <body>
-        <div id="info-wrapper">
+        <div id="info-wrapper" class="movable window">
             <div class="info">
                 <div>Игра "Угадай число"</div>
                 <div>Для начала игры нажмите кнопку</div>
                 <button id="go-button"><span>Начать игру</span></button>
             </div>
         </div>
-        <div id="game-wrapper">
+        <div id="game-wrapper" class="window">
             <div class="game">
                 <div class="left-top">
                     <div class="dash"></div>
                 </div>
                 <div class="window-title">
-                    <div class="window-active">Угадай число</div>
+                    <div class="window-active movable">Угадай число</div>
                 </div>
                 <div class="right-top">
                     <div class="arrow-down">&#9660;</div>
@@ -336,13 +395,13 @@
                 </div>
             </div>
         </div>
-        <div id="congradulation-wrapper">
+        <div id="congradulation-wrapper" class="window">
             <div class="congradulation">
                 <div class="dash-wrapper">
                     <div class="dash"></div>
                 </div>
                 <div class="window-title-wrapper">
-                    <div class="window-active">Победа!!!</div>
+                    <div class="window-active movable">Победа!!!</div>
                 </div>
                 <div></div>
                 <div class="work-area">
