@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'Veles';
+    src: url('../fonts/veles-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Veles';
+    src: url('../fonts/veles-bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0d568a;
+    min-width: 768px;
+    font: normal 42px/48px 'Veles';
+}
+
+main {
+    margin: 0 auto;
+    width: 768px;
+}
+
+p {
+    margin: 0;
+    color: #0d568a;
+}
+
+#info-wrapper {
+    height: 766px;
+    width: 766px;
+    margin-top: 36px;
+    background:  url('../images/balloon.png') no-repeat top right, url('../images/sun.png') no-repeat center center;
+    border: 1px solid transparent;
+    background-size: auto, contain;
+}
+
+#info {
+    width: 630px;
+    height: 630px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 75px;
+    box-shadow: 0 0 5px 10px #fff;
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#gifts {
+    text-align: center;
+    margin-top: -86px;
+}
+
+#get-gift {
+    padding: 24px;
+    background: #0d568a;
+    color: #fff;
+    font: bold 36px/36px 'Veles';
+    border: none;
+    border-radius: 12px;
+    box-shadow: 6px 6px 10px rgb(0 0 0 / 50%);
+    cursor: pointer;    
+}
+
+#get-gift:active {
+    box-shadow: inset 6px 6px 10px rgb(0 0 0 / 50%);
+}
+
+#popup-wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: black;
+    opacity: 50%;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.gift {
+    display: none;
+    background: #fff;
+    border-radius: 12px;
+    width: 424px;
+    height: 424px;
+    position: absolute;
+    z-index: 20000;
+    top: calc(50% - 212px);
+    left: calc(50% - 212px);
+}
+.gift img {
+    padding: 12px;
+}
